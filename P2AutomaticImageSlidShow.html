@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+        
+        .slideshow-image {
+            display: none;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <title>Automatic Image Slideshow</title>
+</head>
+
+<body>
+    <div class="slideshow-container">
+        <img class="slideshow-image" src="img1.jpg" alt="Image 1">
+        <img class="slideshow-image" src="screenshot(1).png" alt="Image 2">
+        <img class="slideshow-image" src="screenshot(2).png" alt="Image 3">
+    </div>
+
+    <script>
+        const slideshowImages = document.querySelectorAll('.slideshow-image');
+        let currentImageIndex = 0;
+
+        function showNextImage() {
+            slideshowImages[currentImageIndex].style.display = 'none';
+            currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+            slideshowImages[currentImageIndex].style.display = 'block';
+        }
+
+        function startSlideshow() {
+            setInterval(showNextImage, 2000); // Change image every 2 seconds
+        }
+
+        startSlideshow();
+    </script>
+</body>
+
+</html>
