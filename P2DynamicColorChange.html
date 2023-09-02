@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Background Color</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        
+        #colorDiv {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="colorInput">Enter Color: </label>
+        <input type="text" id="colorInput" placeholder="Enter a color name">
+        <div id="colorDiv"></div>
+        <p id="colorValue"></p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#colorInput').on('input', function() {
+                const colorValue = $(this).val();
+                $('#colorDiv').css('background-color', colorValue);
+                $('#colorValue').text('Color Value: ' + colorValue);
+            });
+        });
+    </script>
+</body>
+
+</html>
