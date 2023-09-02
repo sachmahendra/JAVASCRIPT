@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .slider {
+            display: flex;
+            align-items: center;
+        }
+        
+        .prevBtn,
+        .nextBtn {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        
+        #sliderImage {
+            max-width: 100%;
+            height: auto;
+            margin: 0 20px;
+        }
+    </style>
+    <title>Image Slider</title>
+</head>
+
+<body>
+    <div class="slider">
+        <button class="prevBtn" onclick="prevImage()">Previous</button>
+        <img id="sliderImage" src="image1.jpg" alt="Image">
+        <button class="nextBtn" onclick="nextImage()">Next</button>
+    </div>
+    <script>
+        const images = ["screenshot(2).png", "img1.jpg", "screenshot(1).png"]; // Add your image filenames here
+        let currentIndex = 0;
+
+        const sliderImage = document.getElementById("sliderImage");
+
+        function showImage(index) {
+            if (index < 0) {
+                currentIndex = images.length - 1;
+            } else if (index >= images.length) {
+                currentIndex = 0;
+            }
+            sliderImage.src = images[currentIndex];
+        }
+
+        function prevImage() {
+            currentIndex--;
+            showImage(currentIndex);
+        }
+
+        function nextImage() {
+            currentIndex++;
+            showImage(currentIndex);
+        }
+
+        showImage(currentIndex);
+    </script>
+</body>
+
+</html>
